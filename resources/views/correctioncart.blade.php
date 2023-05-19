@@ -7,15 +7,15 @@
         <form id="updateForm" class="col s12" action="{{ route('updatecart', ['id' => $cartItem->id]) }}" method="POST">
             @csrf
             <div class="row">
-                <div class="input-field col s12">
-                    <input type="text" id="product_name" name="product_name" value="{{ $cartItem->product_name }}" readonly>
+                <div class="input-field col s6">
+                    <input type="text" id="product_name" name="product_name" value="{{ $cartItem->product_name }}" readonly  style="font-size: 36px;">
                     <label for="product_name">商品名</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <input type="number" id="amount" name="amount" value="{{ $cartItem->amount }}">
-                    <label for="amount">数量</label>
+                <div class="input-field col s4">
+                    <input type="number" id="amount" name="amount" value="{{ $cartItem->amount }}" style="font-size: 36px;">
+                    <label for="amount" >数量</label>
                 </div>
             </div>
             <div class="row">
