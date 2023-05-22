@@ -15,18 +15,18 @@
             @csrf
 
             <div class="input-field">
-                <input type="text" id="product_name" name="product_name" required>
                 <label for="product_name">商品名:</label>
+                <input type="text" id="product_name" name="product_name" required>
             </div>
 
             <div class="input-field">
-                <input type="number" id="product_code" name="product_code" required>
                 <label for="product_code">バーコードNO:</label>
+                <input type="number" id="product_code" name="product_code" required>
             </div>
 
             <div class="input-field">
-                <input type="number" id="price" name="price" required>
                 <label for="price">定価:</label>
+                <input type="number" id="price" name="price" required>
             </div>
 
             <div class="input-field">
@@ -38,13 +38,14 @@
             </div>
 
             <div class="input-field">
-                <input type="number" id="taxinclude_price" name="taxinclude_price" required>
                 <label for="taxinclude_price">税込み価格:</label>
+                <input type="number" id="taxinclude_price" name="taxinclude_price" required>
             </div>
 
             <button class="btn greeen waves-effect waves-light" type="submit">登録</button>
         </form>
     </div>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('select').formSelect();

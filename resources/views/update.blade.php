@@ -11,7 +11,8 @@
             </div>
         @endif
 
-        <h2>データ重複があります、入力内容で更新しますか？更新する場合は更新ボタンを押してください。</h2>
+        <h3>データ重複があります、入力内容で更新しますか？</h3>
+        <h3>更新する場合は更新ボタンを押してください。</h3>
 
         <form method="POST" action="{{ route('product.update') }}"  id="update-form">
             @csrf
@@ -32,8 +33,8 @@
             </div>
 
             <div class="input-field">
-                <label for="taxrate">税率:</label>
                 <input type="number" id="price" name="taxrate" value={{ $taxrate }} required>
+                <label for="taxrate">税率:</label>
             </div>
 
             <div class="input-field">
@@ -49,9 +50,13 @@
                 <button class="btn red waves-effect waves-light" type="submit">キャンセル</button>
             </form>
         </div>
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('select').formSelect();
         });
     </script>
 @endsection
+
+
