@@ -11,11 +11,13 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .receipt {
             border: 1px solid #ccc;
             padding: 20px;
+            max-width: 300px;
+            margin: 0; 
         }
         h1 {
             font-size: 24px;
@@ -25,21 +27,28 @@
             font-size: 18px;
             margin: 0;
         }
-        h3{
-            font-size:14px;
-            margin-left: 100px;
-        }
         p {
+            font-size: 14px;
             margin: 10px 0;
         }
-
+        .container {
+            margin-top: 30px;
+            margin-right: 900px;
+        }
         @media print {
             body {
-                font-size: 12px;
+                padding: 0;
+                margin: 0;
             }
             .receipt {
-                width: 58mm; /* レシートプリンターの幅に合わせて調整 */
-                padding: 5px;
+                width:172px;
+                padding: 0 1px 0 0;
+                max-width: 300px; /* プリント時もこの幅を維持 */
+                margin: 0 auto;
+                position: absolute;
+                left: 0;
+                top: 0;
+
             }
             .no-print{
                 display: none;
@@ -51,7 +60,7 @@
 <body>
 
     <div class="receipt">
-        <h1>デイリーヤマザキ</h1>
+        <h1>Dairyヤマザキ</h1>
         
         <p>領収書</p>
         <p>日付: {{ now() }}</p>
@@ -81,10 +90,13 @@
     </div>
     <div class="container no-print">
         <div class="row">
-            <div class="col s6">
+            <div class="col s4">
+                <button class="btn blue waves-effect waves-light no-print" type="button" onClick="window.print()">印刷</button>
+            </div>
+            <div class="col s4">
                 <button class="btn red waves-effect waves-light no-print" type="button" onClick="history.back()">キャンセル</button>
             </div>
-            <div class="col s6">
+            <div class="col s4">
                 <form action="{{ route('wait') }}" method="GET">
                     <button class="btn green waves-effect waves-light no-print" type="submit">レジに戻る</button>
                 </form>
@@ -93,7 +105,6 @@
     </div>
     
     <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.min.js') }}"></script>
-    
+    <script src="{{ asset('js/materialize.min.js') }}"></script>    
 </body>
 </html>
